@@ -5,6 +5,7 @@ import java.util.UUID;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
 import Kiyoonewton.demo.job.Job;
+import Kiyoonewton.demo.job.JobRepository;
 import Kiyoonewton.demo.job.JobService;
 
 @Service
