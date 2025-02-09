@@ -32,4 +32,24 @@ public class CompanyServiceImplement implements CompanyService {
         }
         return false;
     }
+
+    @Override
+    public void createCompany(Company company) {
+        companyRepository.save(company);
+    }
+
+    @Override
+    public Company getCompanyById(UUID id) {
+        return companyRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public boolean deleteCompanyById(UUID id) {
+        try {
+            companyRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
