@@ -23,8 +23,8 @@ public class CompanyServiceImplement implements CompanyService {
         Optional<Company> optionalCompany = companyRepository.findById(id);
         if (optionalCompany.isPresent()) {
             Company company = optionalCompany.get();
-            if (updateCompany.getTitle() != null)
-                company.setTitle(updateCompany.getTitle());
+            if (updateCompany.getName() != null)
+                company.setName(updateCompany.getName());
             if (updateCompany.getDescription() != null)
                 company.setDescription(updateCompany.getDescription());
             companyRepository.save(company);

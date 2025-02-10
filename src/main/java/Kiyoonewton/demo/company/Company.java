@@ -12,16 +12,16 @@ public class Company {
     @Id
     @GeneratedValue(generator = "UUID")
     private UUID id;
-    private String title;
+    private String name;
     private String description;
 
-    public Company(UUID id, String title, String description) {
+    public Company(UUID id, String name, String description) {
         this.id = id;
-        this.title = title;
+        this.name = name;
         this.description = description;
     }
 
-    @OneToMany
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
     public Company() {}
@@ -34,12 +34,12 @@ public class Company {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {

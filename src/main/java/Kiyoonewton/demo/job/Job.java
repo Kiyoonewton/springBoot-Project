@@ -5,6 +5,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import Kiyoonewton.demo.company.Company;
 
 @Entity
 public class Job {
@@ -53,6 +56,10 @@ public class Job {
     public UUID getId() {
         return id;
     }
+
+@ManyToOne
+@JoinColumn(name = "company_id")
+private Company company;
 
     public void setId(UUID uuid) {
         this.id = uuid;
