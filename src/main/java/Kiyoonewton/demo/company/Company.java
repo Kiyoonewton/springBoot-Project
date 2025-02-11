@@ -15,16 +15,25 @@ public class Company {
     private String name;
     private String description;
 
-    public Company(UUID id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
-
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
+    public Company(UUID id, String name, String description, List<Job> jobs) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.jobs = jobs;
+    }
+
     public Company() {}
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 
     public UUID getId() {
         return id;

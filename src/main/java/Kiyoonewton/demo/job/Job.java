@@ -5,7 +5,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import Kiyoonewton.demo.company.Company;
 
@@ -20,6 +19,9 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    @ManyToOne
+    private Company company;
 
     public void setTitle(String title) {
         this.title = title;
@@ -41,8 +43,7 @@ public class Job {
         this.location = location;
     }
 
-    public Job() {
-    }
+    public Job() {}
 
     public Job(String title, String description, String minSalary, String maxSalary,
             String location) {
@@ -57,9 +58,13 @@ public class Job {
         return id;
     }
 
-@ManyToOne
-@JoinColumn(name = "company_id")
-private Company company;
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     public void setId(UUID uuid) {
         this.id = uuid;
