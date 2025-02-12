@@ -12,7 +12,6 @@ public class JobController {
 
     private JobService jobService;
 
-
     public JobController(JobService jobService) {
         this.jobService = jobService;
     }
@@ -24,7 +23,6 @@ public class JobController {
 
     @PostMapping
     public ResponseEntity<String> createJob(@RequestBody Job job) {
-
         jobService.createJob(job);
         return new ResponseEntity<>("Successfully added a new job!", HttpStatus.OK);
     }
