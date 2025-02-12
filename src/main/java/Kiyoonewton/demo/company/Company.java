@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import Kiyoonewton.demo.job.Job;
+import Kiyoonewton.demo.review.Review;
 import java.util.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,6 +20,10 @@ public class Company {
     @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 
     public Company(UUID id, String name, String description, List<Job> jobs) {
         this.id = id;
