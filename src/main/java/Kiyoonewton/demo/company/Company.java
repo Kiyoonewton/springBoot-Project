@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import Kiyoonewton.demo.job.Job;
 import java.util.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Company {
@@ -15,6 +16,7 @@ public class Company {
     private String name;
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
