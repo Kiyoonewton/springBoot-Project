@@ -21,9 +21,16 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Review> reviews;
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
 
     public Company(UUID id, String name, String description, List<Job> jobs) {
         this.id = id;

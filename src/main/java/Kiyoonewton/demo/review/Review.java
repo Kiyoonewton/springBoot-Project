@@ -1,18 +1,24 @@
 package Kiyoonewton.demo.review;
 
 import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import Kiyoonewton.demo.company.Company;
 
 @Entity
 public class Review {
-
+@Id
+@GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String title;
     private String description;
     private double rating;
 
+    @JsonIgnore
     @ManyToOne
     private Company company;
 

@@ -1,9 +1,10 @@
 package Kiyoonewton.demo.review;
 
 import java.util.List;
-import Kiyoonewton.demo.company.Company;
+import java.util.UUID;
 
 public interface ReviewService {
-    List<Review> getAllReviews(Company CompanyId);
+    List<Review> getAllReviews(UUID companyId);
+    boolean createReview(UUID companyId, Review review);
 
 }
