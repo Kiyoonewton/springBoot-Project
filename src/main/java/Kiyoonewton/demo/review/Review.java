@@ -16,7 +16,7 @@ public class Review {
     private UUID id;
     private String title;
     private String description;
-    private double rating;
+    private Double rating;
 
     @JsonIgnore
     @ManyToOne
@@ -55,7 +55,7 @@ public class Review {
         this.description = description;
     }
 
-    public double getRating() {
+    public Double getRating() {
         return rating;
     }
 

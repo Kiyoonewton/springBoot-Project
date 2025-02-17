@@ -19,6 +19,16 @@ public class CompanyServiceImplement implements CompanyService {
     }
 
     @Override
+    public void createCompany(Company company) {
+        companyRepository.save(company);
+    }
+
+    @Override
+    public Company getCompanyById(UUID id) {
+        return companyRepository.findById(id).orElse(null);
+    }
+
+    @Override
     public boolean updateCompany(UUID id, Company updateCompany) {
         Optional<Company> optionalCompany = companyRepository.findById(id);
         if (optionalCompany.isPresent()) {
@@ -31,16 +41,6 @@ public class CompanyServiceImplement implements CompanyService {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public void createCompany(Company company) {
-        companyRepository.save(company);
-    }
-
-    @Override
-    public Company getCompanyById(UUID id) {
-        return companyRepository.findById(id).orElse(null);
     }
 
     @Override

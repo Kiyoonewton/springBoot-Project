@@ -26,16 +26,6 @@ public class CompanyController {
         return new ResponseEntity<>(companyService.getAllCompanies(), HttpStatus.OK);
     }
 
-
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateCompany(@PathVariable UUID id,
-            @RequestBody Company updateCompany) {
-        boolean updated = companyService.updateCompany(id, updateCompany);
-        if (updated)
-            return new ResponseEntity<>("Company updated Successfully", HttpStatus.OK);
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
     @PostMapping
     public ResponseEntity<String> createCompany(@RequestBody Company company) {
         companyService.createCompany(company);
@@ -47,6 +37,15 @@ public class CompanyController {
         Company company = companyService.getCompanyById(id);
         if (company != null)
             return new ResponseEntity<>(company, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateCompany(@PathVariable UUID id,
+            @RequestBody Company updateCompany) {
+        boolean updated = companyService.updateCompany(id, updateCompany);
+        if (updated)
+            return new ResponseEntity<>("Company updated Successfully", HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
