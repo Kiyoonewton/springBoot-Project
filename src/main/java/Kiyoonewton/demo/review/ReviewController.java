@@ -55,7 +55,7 @@ public class ReviewController {
         boolean isReviewDeleted = reviewService.deleteReview(companyId, reviewId);
         if (isReviewDeleted)
             return new ResponseEntity<>("Successfully deleted", HttpStatus.OK);
-        return new ResponseEntity<>("Deletion not successful", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Delete is not successful", HttpStatus.NOT_FOUND);
 
     }
 }
